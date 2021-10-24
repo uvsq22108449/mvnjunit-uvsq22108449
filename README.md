@@ -21,38 +21,42 @@ Enfin, la prise en compte des contraintes se fera par de la gestion d’erreurs 
 
 Il pourra éventuellement être nécessaire de [configurer le proxy](http://maven.apache.org/guides/mini/guide-proxies.html) (http://wwwcache.uvsq.fr:3128) pour accéder au dépôt Maven.
 
-À chaque étape, validez vos modifications avec `git` et si nécessaire, exécutez le cycle maven adapté pour vérifier vos manipulations.
-
+À chaque étape, validez vos modifications avec `git` et si nécessaire, exécutez le cycle maven adapté pour vérifier vos manipulations.: 4.0.0
 1.  Quelles conventions utilise Maven pour l’arborescence des répertoires ?
+    l'arborescence d'un projet Maven est par défaut imposée par Maven
+    le fichier pom.xml c'est e fichier POM de description du projet
     Où se trouvent les sources de l'application et les sources des tests ?
 1.  Examinez le projet Maven ainsi que le fichier de description et répondez aux questions suivantes :
     1.  Dans quel répertoire se trouvent les fichiers sources du projet ? Les sources des tests ?
-        > RÉPONDRE ICI
+        > les fichiers source du projet trouve dans: src/Main/java
+        > les fichiers source du test se trouve dans: src/test/java
     1. Quelles sont les coordonnées du projet ?
-        > RÉPONDRE ICI
+        > modelVersion 4.0.0
     1. À quoi sert la propriété `project.build.sourceEncoding` ?
-        > RÉPONDRE ICI
+        > sert a Choisis l'enconding avec lequel tu veux compiler dans notre cas c'est 'UTF-8'
     1. Quelles versions des sources et de la JVM sont utilisés ?
-        > RÉPONDRE ICI
+        > la version 1.7
     1. Quelle version de JUnit est configurée ? À quoi sert la balise `scope` ?
-        > RÉPONDRE ICI
+        > La version JUnit : 4.11,L' <scope>élément peut prendre 6 valeurs: compiler , fourni , runtime , test , système et import .
+Cette étendue est utilisée pour limiter la transitivité d'une dépendance et également pour affecter le chemin de classe utilisé pour diverses tâches de génération.
     1. À quoi sert la section `pluginManagement` ?
-        > RÉPONDRE ICI
+        > plugin Management contient des éléments de plug-in de la même manière, sauf que plutôt que de configurer les informations de plug-in pour cette version de projet particulière, il est destiné à configurer des versions de projet héritant de celle-ci. Cependant, cela ne configure que les plugins qui sont réellement référencés dans l'élément plugins des enfants. Les enfants ont le droit de remplacer les définitions de pluginManagement.
+
 1.  Modifiez la configuration du projet de la façon suivante :
     1.  fixez la version des sources et des .class pour utiliser la version 11 de Java
     1.  utilisez la dernière version stable de JUnit 4 (cf. [MVNRepository](https://mvnrepository.com/))
 1.  Ajoutez un fichier `.gitignore` adapté aux projets Maven (cf. [A collection of .gitignore templates](https://github.com/github/gitignore)) et ajoutez-y les fichiers et répertoires de votre IDE.
 1.  Quelle commande Maven permet de :
     1.  créer un `jar` du projet ?
-        > RÉPONDRE ICI
+        > mvn clean compile Assembly:single
     1. lancer les tests ?
-        > RÉPONDRE ICI
+        > mvn test
     1. supprimer tous les fichiers issus de la compilation ?
-        > RÉPONDRE ICI
+        > maven clean
 1.  Ajoutez une classe `Fraction` et une classe `FractionTest` dans les répertoires et packages appropriés.
     Supprimez les classes d'exemple `App` et `AppTest`.
 1.  Énumérez une liste de cas de tests à réaliser en n'oubliant pas les cas d'erreur.
-    > RÉPONDRE ICI
+    > assertTrue( true ); assertEquals(obj.getNum(),5); assertNotNull(obj); assertNull(null); assertNotSame(obj, obj1); assertSame(obj, obj1);
 1.  Pour chaque cas de test,
     1. écrivez le test JUnit correspondant dans la classe de test,
     1. vérifiez qu’il échoue,
